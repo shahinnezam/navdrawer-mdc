@@ -4,6 +4,7 @@ import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
@@ -19,23 +20,26 @@ public class HomeFragment extends Fragment {
 
     private HomeViewModel homeViewModel;
     private FragmentHomeBinding binding;
+    Button button1;
+    Button button2;
+    Button button3;
 
     public View onCreateView(@NonNull LayoutInflater inflater,
                              ViewGroup container, Bundle savedInstanceState) {
-        homeViewModel =
-                new ViewModelProvider(this).get(HomeViewModel.class);
-
-        binding = FragmentHomeBinding.inflate(inflater, container, false);
-        View root = binding.getRoot();
-
-        final TextView textView = binding.textHome;
-        homeViewModel.getText().observe(getViewLifecycleOwner(), new Observer<String>() {
-            @Override
-            public void onChanged(@Nullable String s) {
-                textView.setText(s);
-            }
-        });
+        View root = inflater.inflate(R.layout.fragment_home,container,false);
+        //TODO: Sets the onClickListener for each button to the galleryItemButtonClick method with appropriate arguments
+        button1 = (Button) root.findViewById(R.id.button);
+        button1.setOnClickListener(galleryItemButtonClick(root,int););
+        button2 = (Button) root.findViewById(R.id.button2);
+        button3 = (Button) root.findViewById(R.id.button3);
+        galleryItemButtonClick();
         return root;
+    }
+
+    public void galleryItemButtonClick(View view, int item){
+        HomeFragmentDirections.ActionNavHomeToNavGallery action = HomeFragmentDirections.actionNavHomeToNavGallery();
+        //TODO: assign the appropriate item number value to the Destination Argument and navigate to the gallery page
+
     }
 
     @Override

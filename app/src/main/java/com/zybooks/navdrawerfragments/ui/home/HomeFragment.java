@@ -23,6 +23,7 @@ public class HomeFragment extends Fragment {
     Button button1;
     Button button2;
     Button button3;
+    int int1;
 
     public View onCreateView(@NonNull LayoutInflater inflater,
                              ViewGroup container, Bundle savedInstanceState) {
@@ -31,8 +32,9 @@ public class HomeFragment extends Fragment {
         button1 = (Button) root.findViewById(R.id.button);
         button1.setOnClickListener(galleryItemButtonClick(root,int););
         button2 = (Button) root.findViewById(R.id.button2);
+        button2.setOnClickListener(galleryItemButtonClick(root, ););
         button3 = (Button) root.findViewById(R.id.button3);
-        galleryItemButtonClick();
+
         return root;
     }
 

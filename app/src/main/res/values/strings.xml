@@ -10,4 +10,7 @@
     <string name="menu_home">Home</string>
     <string name="menu_gallery">Gallery</string>
     <string name="menu_slideshow">Slideshow</string>
+    <string name="gallery_item_2">Gallery Item 2</string>
+    <string name="gallery_item_1">Gallery Item 1</string>
+    <string name="gallery_item_3">Gallery Item 3</string>
 </resources>

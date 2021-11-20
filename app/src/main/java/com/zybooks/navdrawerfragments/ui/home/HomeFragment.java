@@ -12,9 +12,11 @@ import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 import androidx.lifecycle.Observer;
 import androidx.lifecycle.ViewModelProvider;
+import androidx.navigation.Navigation;
 
 import com.zybooks.navdrawerfragments.R;
 import com.zybooks.navdrawerfragments.databinding.FragmentHomeBinding;
+import com.zybooks.navdrawerfragments.ui.gallery.GalleryFragmentArgs;
 
 public class HomeFragment extends Fragment {
 
@@ -23,17 +25,23 @@ public class HomeFragment extends Fragment {
     Button button1;
     Button button2;
     Button button3;
-    int int1;
 
     public View onCreateView(@NonNull LayoutInflater inflater,
                              ViewGroup container, Bundle savedInstanceState) {
         View root = inflater.inflate(R.layout.fragment_home,container,false);
         //TODO: Sets the onClickListener for each button to the galleryItemButtonClick method with appropriate arguments
         button1 = (Button) root.findViewById(R.id.button);
-        button1.setOnClickListener(galleryItemButtonClick(root,int););
+        button1.setOnClickListener((View v) -> {
+            galleryItemButtonClick(v, 1);
+                });
         button2 = (Button) root.findViewById(R.id.button2);
-        button2.setOnClickListener(galleryItemButtonClick(root, ););
+        button1.setOnClickListener((View v) -> {
+            galleryItemButtonClick(v, 2);
+        });
         button3 = (Button) root.findViewById(R.id.button3);
+        button1.setOnClickListener((View v) -> {
+            galleryItemButtonClick(v, 3);
+        });
 
         return root;
     }
@@ -41,7 +49,8 @@ public class HomeFragment extends Fragment {
     public void galleryItemButtonClick(View view, int item){
         HomeFragmentDirections.ActionNavHomeToNavGallery action = HomeFragmentDirections.actionNavHomeToNavGallery();
         //TODO: assign the appropriate item number value to the Destination Argument and navigate to the gallery page
-
+        action.setGalleryItemId(item);
+        Navigation.findNavController(view).navigate(action);
     }
 
     @Override

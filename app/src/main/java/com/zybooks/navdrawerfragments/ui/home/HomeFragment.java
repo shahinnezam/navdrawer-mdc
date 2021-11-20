@@ -19,9 +19,6 @@ import com.zybooks.navdrawerfragments.databinding.FragmentHomeBinding;
 import com.zybooks.navdrawerfragments.ui.gallery.GalleryFragmentArgs;
 
 public class HomeFragment extends Fragment {
-
-    private HomeViewModel homeViewModel;
-    private FragmentHomeBinding binding;
     Button button1;
     Button button2;
     Button button3;
@@ -30,18 +27,12 @@ public class HomeFragment extends Fragment {
                              ViewGroup container, Bundle savedInstanceState) {
         View root = inflater.inflate(R.layout.fragment_home,container,false);
         //TODO: Sets the onClickListener for each button to the galleryItemButtonClick method with appropriate arguments
-        button1 = (Button) root.findViewById(R.id.button);
-        button1.setOnClickListener((View v) -> {
-            galleryItemButtonClick(v, 1);
-                });
-        button2 = (Button) root.findViewById(R.id.button2);
-        button1.setOnClickListener((View v) -> {
-            galleryItemButtonClick(v, 2);
-        });
-        button3 = (Button) root.findViewById(R.id.button3);
-        button1.setOnClickListener((View v) -> {
-            galleryItemButtonClick(v, 3);
-        });
+        button1 = root.findViewById(R.id.button);
+        button1.setOnClickListener((View v) -> galleryItemButtonClick(v, 1));
+        button2 = root.findViewById(R.id.button2);
+        button2.setOnClickListener((View v) -> galleryItemButtonClick(v, 2));
+        button3 = root.findViewById(R.id.button3);
+        button3.setOnClickListener((View v) -> galleryItemButtonClick(v, 3));
 
         return root;
     }
@@ -51,11 +42,5 @@ public class HomeFragment extends Fragment {
         //TODO: assign the appropriate item number value to the Destination Argument and navigate to the gallery page
         action.setGalleryItemId(item);
         Navigation.findNavController(view).navigate(action);
-    }
-
-    @Override
-    public void onDestroyView() {
-        super.onDestroyView();
-        binding = null;
     }
 }
